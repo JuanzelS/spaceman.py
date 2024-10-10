@@ -4,10 +4,13 @@ def hangman_game():
     print("Welcome to Hangman")
     print("-------------------------------------------")
 
-    wordDictionary = ["sunflower", "house", "diamond", "memes", "yeet", "hello", "howdy", "like", "subscribe"]
-
-    # Choose a random word
-    randomWord = random.choice(wordDictionary)
+     f = open('words.txt', 'r')
+    words_list = f.readlines()
+    f.close()
+    
+    words_list = words_list[0].split(' ') #comment this line out if you use a words.txt file with each word on a new line
+    secret_word = random.choice(words_list)
+    return secret_word
 
     # Initialize variables
     word_length = len(randomWord)
